@@ -29,6 +29,12 @@ My suggestion is to deploy as a device script in Intune, that way it will run pr
 **NOTE: Run in the 64-bit context** <br>
 - Script debloat-intune-script.ps1
 
+Also make sure to:
+Run this script using the logged on credentials = no <br>
+Enforce script signature check = no <br>
+Run script in 64 bit PowerShell Host = yes
+
+
 **Alternative: Intune Application Deployment** <br>
 If you would prefer to deploy as an application, you can either grab the Intunewin file and use the following commands:
 
