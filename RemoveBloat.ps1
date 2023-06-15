@@ -744,6 +744,41 @@ else {
     #Remove Parental Controls
    Get-AppxPackage -allusers Microsoft.Windows.ParentalControls | Remove-AppxPackage 
    write-host "Removed Parental Controls"
+   
+	###################################################################
+	
+    #Remove Additional Applications (addon)
+	
+	#Remove BingNews
+    Get-AppxPackage -allusers *BingNews* | Remove-AppxPackage
+    write-host "Removed BingNews"
+	
+	#Remove BingWeather
+    Get-AppxPackage -allusers *BingWeather* | Remove-AppxPackage
+    write-host "Removed BingWeather"
+	
+	#Remove GamingApp
+    Get-AppxPackage -allusers *GamingApp* | Remove-AppxPackage
+    write-host "Removed GamingApp"
+	
+	#Remove Xbox.TCUI
+    Get-AppxPackage -allusers *Xbox.TCUI* | Remove-AppxPackage
+    write-host "Removed Xbox.TCUI"
+	
+	#Remove XboxGamingOverlay
+    Get-AppxPackage -allusers *XboxGamingOverlay* | Remove-AppxPackage
+    write-host "Removed XboxGamingOverlay"
+	
+	#Remove MixedReality.Portal
+    Get-AppxPackage -allusers *MixedReality.Portal* | Remove-AppxPackage
+    write-host "Removed MixedReality.Portal"
+	
+	#Remove LenovoCompanion
+    Get-AppxPackage -allusers *LenovoCompanion* | Remove-AppxPackage
+    write-host "Removed LenovoCompanion"
+	
+	
+	###################################################################
 
    #Remove Teams Chat
 $MSTeams = "MicrosoftTeams"
