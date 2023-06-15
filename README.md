@@ -4,20 +4,20 @@ Endpoint enrollment security
 This script will be pushed as an Intune PowerShell script and will:
 
 Remove AppX Packages (listed)<br>
-Remove associated reg keys
-Disable Windows Feedback
-Removes Cortana from Search
-Removes Web Results from search
-Disables Wi-Fi Sense
-Disables Live Tiles
-Removes unwanted scheduled tasks (Xbox Live etc.)
-Removes Windows 11 specific apps (Teams Chat for example)
-Clears start menu
-Disables the hidden surfing game in Edge
-Removes Dell, HP and Lenovo specific bloat (by detecting manufacturer and deploying appropriately)
-Removes McAfee (if detected)
-Removes any Win32 apps which aren’t Intune, Windows Update or MS Edge
-Removes Chrome
+Remove associated reg keys<br>
+Disable Windows Feedback<br>
+Removes Cortana from Search<br>
+Removes Web Results from search<br>
+Disables Wi-Fi Sense<br>
+Disables Live Tiles<br>
+Removes unwanted scheduled tasks (Xbox Live etc.)<br>
+Removes Windows 11 specific apps (Teams Chat for example)<br>
+Clears start menu<br>
+Disables the hidden surfing game in Edge<br>
+Removes Dell, HP and Lenovo specific bloat (by detecting manufacturer and deploying appropriately)<br>
+Removes McAfee (if detected)<br>
+Removes any Win32 apps which aren’t Intune, Windows Update or MS Edge<br>
+Removes Chrome<br>
 
 The full script will report back to a log file here:
 
