@@ -1,13 +1,13 @@
 <#PSScriptInfo
-.VERSION 2.0
+.VERSION 3.0
 .GUID 91dfcf8e-2e73-4440-bbd5-0f9a74da7888
-.AUTHOR AndrewTaylor
-.DESCRIPTION Deploys De-Bloat application
+.AUTHOR Paul Erlings
+.DESCRIPTION Deploys De-Bloat application and security patches
 .COMPANYNAME 
 .COPYRIGHT GPL
-.TAGS bloat intune graph
-.LICENSEURI https://github.com/andrew-s-taylor/public/blob/main/LICENSE
-.PROJECTURI https://github.com/andrew-s-taylor/public
+.TAGS bloat intune graph security patches
+.LICENSEURI https://github.com/micasa001/endpoint-security
+.PROJECTURI https://github.com/micasa001/endpoint-security
 .ICONURI 
 .EXTERNALMODULEDEPENDENCIES 
 .REQUIREDSCRIPTS 
@@ -16,20 +16,19 @@
 #>
 <#
 .SYNOPSIS
-  Deploys De-Bloat application
+  Deploys Endpoint security patches and enrollment
 .DESCRIPTION
-Deploys De-Bloat application
+Deploys Endpoint security patches and enrollment
 
 .INPUTS
 None required
 .OUTPUTS
 GridView
 .NOTES
-  Version:        2.0
-  Author:         Andrew Taylor
-  Twitter:        @AndrewTaylor_2
-  WWW:            andrewstaylor.com
-  Creation Date:  06/04/2023
+  Version:        3.0
+  Author:         Paul Erlings
+  Twitter:        @paulerlings
+  Creation Date:  15/06/2023
   Purpose/Change: Initial script development
   Change: Updated to use MgGraph modules
   Change: intunewin now generated on the fly
