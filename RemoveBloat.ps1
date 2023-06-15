@@ -779,7 +779,8 @@ else {
 	
 	
 	###################################################################
-
+	
+	
    #Remove Teams Chat
 $MSTeams = "MicrosoftTeams"
 
@@ -816,6 +817,74 @@ If (!(Test-Path $registryPath)) {
 }
 Set-ItemProperty $registryPath "ChatIcon" -Value 2
 write-host "Removed Teams Chat"
+
+
+############################################################################################################
+#                                        Windows 11 Specific Add Hardening script                          #
+#                                                                                                          #
+############################################################################################################	
+	
+# Enable 'Local Security Authority (LSA) protection'
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "RunAsPPL" -Value "1"
+
+# Block executable files from running unless they meet a prevalence, age, or trusted list criterion
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\SAFER\CodeIdentifiers" -Name "AuthenticodeEnabled" -Value "1"
+
+# Use advanced protection against ransomware
+Set-MpPreference -RansomwareProtectionLevel 2
+
+# Block process creations originating from PSExec and WMI commands
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PsExec" -Name "DisablePsExec" -Value "1"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WMI" -Name "DisableViaWBEM" -Value "1"
+
+# Block persistence through WMI event subscription
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\EventForwarding" -Name "EnableRSPN" -Value "0"
+
+# Block abuse of exploited vulnerable signed drivers
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DriverSearching" -Name "DontSearchWindowsUpdate" -Value "1"
+
+# Set User Account Control (UAC) to automatically deny elevation requests
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+
+# Set 'Minimum password length' to '14 or more characters'
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Network" -Name "MinPwdLen" -Value "14"
+
+# Set 'Account lockout duration' to 15 minutes or more
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Network" -Name "LockoutDuration" -Value "900"
+
+# Set 'Reset account lockout counter after' to 15 minutes or more
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Network" -Name "ResetLockoutCount" -Value "900"
+
+# Disable Microsoft Defender Firewall notifications when programs are blocked for Domain profile
+Set-NetFirewallProfile -Profile Domain -BlockNotifications Enabled
+
+# Set user authentication for remote connections by using Network Level Authentication to 'Enabled'
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Value "1"
+
+# Disable Microsoft Defender Firewall notifications when programs are blocked for Private profile
+Set-NetFirewallProfile -Profile Private -BlockNotifications Enabled
+
+# Disable 'Installation and configuration of Network Bridge on your DNS domain network'
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Network\NewNetworkWindowOff" -Name "NoNetBridge" -Value "1"
+
+# Enable 'Require domain users to elevate when setting a network's location'
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures" -Name "RequireDomainUsersElevation" -Value "1"
+
+# Set 'Minimum PIN length for startup' to '6 or more characters'
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "MinimumPINLength" -Value "6"
+
+# Enable Local Admin password management
+Set-LocalUser -Name "Administrator" -PasswordManagementEnabled $true
+
+# Disable the local storage of passwords and credentials
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DisableLocalPasswordCache" -Value "1"
+
+# Disable JavaScript on Adobe DC
+Set-ItemProperty -Path "HKCU:\Software\Adobe\Acrobat Reader\DC\JSPrefs" -Name "bEnableJS" -Value "0"
+	
+
+
+
 
 
 
