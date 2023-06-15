@@ -67,7 +67,7 @@ if ($liveversion -ne $currentversion) {
 write-host "Script has been updated, please download the latest version from $liveuri" -ForegroundColor Red
 }
 }
-Get-ScriptVersion -liveuri "https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/Deploy-DeBloat-Application.ps1"
+Get-ScriptVersion -liveuri "https://raw.githubusercontent.com/micasa001/endpoint-security/main/Deploy-DeBloat-Application.ps1"
 ##########################################################################################
 
 $ErrorActionPreference = "Continue"
@@ -1351,7 +1351,7 @@ function new-win32app {
     $ReturnCodes = Get-DefaultReturnCodes
 
     # Win32 Application Upload
-    $appupload = Invoke-UploadWin32Lob -SourceFile "$appfile" -DisplayName "$appname" -publisher "Andrew Taylor" `
+    $appupload = Invoke-UploadWin32Lob -SourceFile "$appfile" -DisplayName "$appname" -publisher "Paul Erlings" `
         -description "$appname" -detectionRules $DetectionRule -returnCodes $ReturnCodes `
         -installCmdLine "$installcmd" `
         -uninstallCmdLine "$uninstallcmd"
@@ -1385,7 +1385,7 @@ $appid = "DeBloat"
 
 
 # Find the script
-$appurl = "https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/debloat-intune-script.ps1"
+$appurl = "https://raw.githubusercontent.com/micasa001/endpoint-security/main/debloat-intune-script.ps1"
 
 #Set the download location
 $output = $apppath + "\debloat-intune-script.ps1"
