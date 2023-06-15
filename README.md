@@ -3,7 +3,7 @@ Endpoint enrollment security
 
 This script will be pushed as an Intune PowerShell script and will:
 
-Remove AppX Packages (listed)
+Remove AppX Packages (listed)<br>
 Remove associated reg keys
 Disable Windows Feedback
 Removes Cortana from Search
